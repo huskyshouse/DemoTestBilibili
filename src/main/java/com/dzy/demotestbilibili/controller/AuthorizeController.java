@@ -28,10 +28,10 @@ public class AuthorizeController {
     @Autowired
     private UserMapper userMapper;
 
-    @Value("${githun.client.id}")
+    @Value("${github.client.id}")
     private String clientId;
 
-    @Value("${githun.client_secret}")
+    @Value("${github.client_secret}")
     private String clientSecret;
 
     @Value("${githun.redirect_uri}")
