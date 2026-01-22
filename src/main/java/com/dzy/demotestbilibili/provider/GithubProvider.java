@@ -3,6 +3,7 @@ package com.dzy.demotestbilibili.provider;
 import com.alibaba.fastjson.JSON;
 import com.dzy.demotestbilibili.dto.AccessTokenDTO;
 import com.dzy.demotestbilibili.dto.GithubUser;
+import lombok.extern.slf4j.Slf4j;
 import okhttp3.*;
 import org.springframework.stereotype.Component;
 
@@ -13,6 +14,7 @@ import java.io.IOException;
  * @author dzy
  * @time 2021/9/15 17:41
  */
+@Slf4j
 @Component
 public class GithubProvider {
 
@@ -37,7 +39,7 @@ public class GithubProvider {
             System.out.println(token);
             return token;
         } catch (Exception e) {
-            e.printStackTrace();
+            log.error(e.getMessage(),e);
         }
         return null;
     }
@@ -62,7 +64,7 @@ public class GithubProvider {
             GithubUser githubUser = JSON.parseObject(string, GithubUser.class);
             return githubUser;
         } catch (IOException e) {
-            e.printStackTrace();
+            log.error(e.getMessage(),e);
         }
         return null;
     }
